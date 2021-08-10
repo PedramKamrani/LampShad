@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Contract\Application.Contract.csproj" />
+    <ProjectReference Include="..\DisCountDoamin\DisCountDoamin.csproj" />
+  </ItemGroup>
+
+</Project>

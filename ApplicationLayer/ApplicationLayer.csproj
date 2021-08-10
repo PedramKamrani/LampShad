@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Appliction.Construct\Appliction.Construct.csproj" />
+    <ProjectReference Include="..\Infractrucuer\Infractrucuer.EFCore.csproj" />
+    <ProjectReference Include="..\SMDomaim\SMDomaim.csproj" />
+  </ItemGroup>
+
+</Project>

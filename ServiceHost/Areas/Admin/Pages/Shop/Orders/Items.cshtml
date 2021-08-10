@@ -1,0 +1,36 @@
+﻿@using _0_FrameWork.BaseClass
+@model List<Appliction.Construct.ViewModel.Order.OrderItemViewModel>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">آیتم های سفارش</h4>
+</div>
+
+<div class="modal-body">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>محصول</th>
+                <th>تعداد</th>
+                <th>قیمت واحد</th>
+                <th>درصد تخفیف</th>
+        </thead>
+        <tbody>
+            @{ int i = 1;}
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@item.Product</td>
+                    <td>@item.Count</td>
+                    <td>@item.UnitPrice.ToMoney()</td>
+                    <td>@item.DiscountRate %</td>
+                </tr>
+                i++;
+            }
+        </tbody>
+    </table>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+</div>

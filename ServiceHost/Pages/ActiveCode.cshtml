@@ -1,0 +1,57 @@
+﻿@page
+@model ServiceHost.Pages.ActiveCodeModel
+@{
+}
+
+
+<div class="page-content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-wrapper">
+                    <div class="page-content-wrapper">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-xs-12 col-lg-6">
+
+                                <form method="post" asp-page-handler="ActiveCode">
+                                    <div class="login-form">
+                                        <h4 class="login-title">تایید کد </h4>
+                                        <div class="row">
+                                            <div class="col-md-12 col-12">
+                                                <label>کد تایید</label>
+                                                <input type="text" name="Activecode" placeholder="...کدتایید ">
+
+                                            </div>
+
+                                           <input type="hidden" name="Mobile"value="" id="mobilenumber">
+                                
+
+                                            <div class="col-md-12">
+                                                <button class="register-button" onclick="url()">تایید</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    function url() {
+        var link = window.location.href.toLowerCase();
+        var mobile = link.split("=")[1];
+        $.get(mobile)
+        $("#mobilenumber").val(mobile);
+        return mobile;
+    };
+
+</script>
+ 

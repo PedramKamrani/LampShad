@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @if (ViewData["Title"] != null)
+    {
+<title>@ViewData["Title"] -  EPOS فروشگاه لوازم دکوری </title> }
+            else
+            {
+<title>EPOS فروشگاه لوازم دکوری</title>}
+
+    <meta name="keywords" content="@Html.Raw(ViewData["keywords"])" />
+    <meta name="description" content="@Html.Raw(ViewData["metaDescription"])" />
+
+    <link href="~/Theme/assets/css/vendors.min.css" rel="stylesheet">
+    <link href="~/Theme/assets/css/style.min.css" rel="stylesheet">
+
+    <link href="~/Theme/assets/css/Custom.min.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json" />
+
+</head>
+
+<body>
+
+    @await Component.InvokeAsync("Menu")
+
+    @RenderBody()
+
+    @await Component.InvokeAsync("Footer")
+
+
+<div class="search-overlay" id="search-overlay">
+    <a href="javascript:void(0)" class="close-search-overlay" id="close-search-overlay">
+        <i class="ion-ios-close-empty"></i>
+    </a>
+    <div class="search-form">
+        <form method="get" asp-page="/Search">
+            <input type="search" name="value" id="value" placeholder="هرچه می خواهید در فروشگاه جستجو کنید ...">
+            <button type="submit">
+                <i class="ion-android-search"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
+
+    <div id="scroll-top">
+        <span>برو بالا</span><i class="ion-chevron-right"></i><i class="ion-chevron-right"></i>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/Theme/assets/js/vendors.min.js"></script>
+    <script src="~/Theme/assets/js/active.js"></script>
+    <script src="~/Theme/assets/js/plugins.min.js"></script>
+    <script src="~/Theme/assets/js/custom.min.js"></script>
+    <script src="~/lib/microsoft-signalr//signalr.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            updateCart();
+        });
+    </script>
+
+    <!---start GOFTINO code--->
+    <script type="text/javascript">
+        !function () { var a = window, d = document; function g() { var g = d.createElement("script"), s = "https://www.goftino.com/widget/7X7Pja", l = localStorage.getItem("goftino"); g.type = "text/javascript", g.async = !0, g.src = l ? s + "?o=" + l : s; d.getElementsByTagName("head")[0].appendChild(g); } "complete" === d.readyState ? g() : a.attachEvent ? a.attachEvent("onload", g) : a.addEventListener("load", g, !1); }();
+    </script>
+    <!---end GOFTINO code--->
+</body>
+
+</html>

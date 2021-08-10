@@ -1,0 +1,64 @@
+[
+  {
+    "outputFileName": "wwwroot/Theme/assets/css/Custom.min.css",
+    "inputFiles": [
+      "wwwroot/Theme/assets/css/Custom.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/Theme/assets/css/style.min.css",
+    "inputFiles": [
+      "wwwroot/Theme/assets/css/style.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/Theme/assets/css/vendors.min.css",
+    "inputFiles": [
+      "wwwroot/Theme/assets/css/vendors.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/Theme/assets/js/active.min.js",
+    "inputFiles": [
+      "wwwroot/Theme/assets/js/active.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/Theme/assets/js/ajax-mail.min.js",
+    "inputFiles": [
+      "wwwroot/Theme/assets/js/ajax-mail.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/Theme/assets/js/custom.min.js",
+    "inputFiles": [
+      "wwwroot/Theme/assets/js/custom.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/Theme/assets/js/plugins.min.js",
+    "inputFiles": [
+      "wwwroot/Theme/assets/js/plugins.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/Theme/assets/js/vendors.min.js",
+    "inputFiles": [
+      "wwwroot/Theme/assets/js/vendors.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/AdminTheme/assets/css/bundle.css",
+    "inputFiles": [
+      "wwwroot/AdminTheme/assets/css/animate.css",
+      "wwwroot/AdminTheme/assets/css/waves-effect.css",
+      "wwwroot/AdminTheme/assets/css/style-responsive.css",
+      "wwwroot/AdminTheme/assets/css/style.css",
+      "wwwroot/AdminTheme/assets/css/persian-datepicker.min.css",
+      "wwwroot/AdminTheme/assets/css/material-design-iconic-font.min.css",
+      "wwwroot/AdminTheme/assets/css/helper.css",
+      "wwwroot/AdminTheme/assets/css/bootstrap-theme.css",
+      "wwwroot/AdminTheme/assets/css/bootstrap.css"
+    ]
+  }
+]

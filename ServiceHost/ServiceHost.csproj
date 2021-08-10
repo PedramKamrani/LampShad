@@ -1,0 +1,66 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>5537f526-d671-441a-bf08-752e922df8eb</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Areas\Admin\Pages\Inventory\launchSettings.json" />
+    <Content Remove="bundleconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
+    <PackageReference Include="HtmlSanitizer" Version="5.0.376" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="Nancy" Version="2.0.0" />
+    <PackageReference Include="WebEssentials.AspNetCore.PWA" Version="1.0.65" />
+    <PackageReference Include="WebMarkupMin.AspNetCore5" Version="2.9.2" />
+    <PackageReference Include="ZarinpalSandbox" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\01-QueryLamshade\01-QueryLamshade.csproj" />
+    <ProjectReference Include="..\AccountManagment.Configure\AccountManagment.Configure.csproj" />
+    <ProjectReference Include="..\BlogManagnentConfigureService\BlogManagnentConfigureService.csproj" />
+    <ProjectReference Include="..\Comment.Mangment.Configure\Comment.Mangment.Configure.csproj" />
+    <ProjectReference Include="..\ConfigurationLayer\ConfigurationLayer.csproj" />
+    <ProjectReference Include="..\ConfigurationService\ConfigurationService.csproj" />
+    <ProjectReference Include="..\IM.ManagmentConfigure\IM.ManagmentConfigure.csproj" />
+    <ProjectReference Include="..\InventoryManagement.Presentation\InventoryManagement.Presentation.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Pages\Shared\_AdminLayout.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Areas\Admin\Pages\Blog\ArticleCategories\Create.cshtml" />
+    <None Include="Areas\Admin\Pages\Blog\ArticleCategories\Edit.cshtml" />
+    <None Include="Areas\Admin\Pages\Blog\ArticleCategories\Index.cshtml" />
+    <None Include="Areas\Admin\Pages\Inventory\launchSettings.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+    <None Include="bundleconfig.json" />
+    <None Include="wwwroot\stylesheets\.gitignore" />
+    <None Include="wwwroot\stylesheets\20Script.ir.url" />
+    <None Include="wwwroot\stylesheets\index.php" />
+    <None Include="wwwroot\stylesheets\README" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\ProductPictures\نگهدارنده\" />
+  </ItemGroup>
+
+</Project>

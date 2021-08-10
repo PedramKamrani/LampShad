@@ -1,0 +1,168 @@
+﻿@model _01_QueryLamshade.Contracts.MenuModel
+@inject _0_FrameWork.BaseClass.IAuthHelper AuthHelper
+
+<div class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header-wrapper d-none d-lg-flex">
+                    <div class="logo">
+                        <a asp-page="/Index">
+                            <img src="~/Theme/assets/img/logo.png" class="img-fluid" alt="logo">
+                        </a>
+                    </div>
+                    <div class="navigation-menu-wrapper">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a asp-page="/Index">صفحه اصلی</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a>محصولات</a>
+                                    <ul class="sub-menu">
+                                        @foreach (var category in Model.ProductCategories)
+                                        {
+                            <li>
+                                <a asp-page="./ProductCategory" asp-route-id="@category.Slug">@category.Name</a>
+                            </li>
+}
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a>مقالات</a>
+                                    <ul class="sub-menu">
+                                        @foreach (var category in Model.ArticleCategories)
+                                        {
+                            <li>
+                                <a asp-page="./ArticleCategory" asp-route-id="@category.Slug">@category.Name</a>
+                            </li>
+}
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a asp-page="./Contact">تماس با ما</a>
+                                </li>
+                                @if (AuthHelper.IsAuthenticated())
+                                {
+                    <li>
+                        <a asp-page="/Account" asp-page-handler="Logout"><i class="fa fa-sign-out"></i> خروج </a>
+                        @*<a asp-page="/Account" asp-page-handler="Logout">(@User.FindFirst("Username").Value) خروج </a>*@
+                    </li>
+ }
+                else
+                {
+    <li>
+        <a asp-page="/Account">وورد / ثبت نام</a>
+    </li>
+}
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header-icon-wrapper">
+                        <ul class="icon-list">
+                            <li>
+                                <a href="javascript:void(0)" id="search-overlay-trigger">
+                                    <i class="ion-ios-search-strong"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="header-cart-icon">
+                                    <a href="#" id="minicart-trigger">
+                                        <i class="ion-bag"></i>
+                                        <span class="counter" id="cart_items_count">0</span>
+                                    </a>
+                                    <div class="mini-cart" id="mini-cart">
+                                        <div class="cart-items-wrapper ps-scroll" id="cart_items_wrapper">
+
+                                        </div>
+                                        <div class="cart-buttons">
+                                            <a asp-page="/Cart">مشاهده سبد خرید</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="header-settings-icon">
+                                    <a href="javascript:void(0)" class="header-settings-trigger"
+                                       id="header-settings-trigger">
+                                        <div class="setting-button">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </a>
+
+                                    <div class="settings-menu-wrapper" id="settings-menu-wrapper">
+                                        <div class="single-settings-block">
+                                            <h4 class="title">پروفایل من </h4>
+                                            <ul>
+                                                <li>
+                                                    <a asp-page="/Account">ثبت نام</a>
+                                                </li>
+                                                <li>
+                                                    <a asp-page="/Account">ورود</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                @*////Mobile/////*@
+                <div class="header-mobile-navigation d-block d-lg-none">
+                    <div class="row align-items-center">
+                        <div class="col-6 col-md-6">
+                            <div class="header-logo">
+                                <a href="index.html">
+                                    <img src="~/Theme/assets/img/logo.png" class="img-fluid" alt="ImageLogo">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-6">
+                            <div class="mobile-navigation text-right">
+                                <div class="header-icon-wrapper">
+                                    <ul class="icon-list justify-content-end">
+                                        <li>
+                                            <a href="javascript:void(0)" id="searchmobile">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                <a asp-page="/Account" asp-page-handler="Logout"><i class="fa fa-sign-out"></i></a> }
+                            else
+                            {
+                                <a asp-page="/Account"><i class="fa fa-user"></i></a>}
+
+                                        </li>
+                                        <li>
+                                            <div class="header-cart-icon">
+                                                <a asp-page="/Cart">
+                                                    <i class="fa fa-shopping-cart fa fa-sin"></i>
+                                                    <span class="counter" id="cart_items_countm">0</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                       
+                                        @*<li>
+                                                <div class="header-cart-icon">
+                                                    <a asp-page="/Search">
+                                                        <i class="fa fa-search"></i>
+
+                                                    </a>
+                                                </div>
+                                            </li>*@
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

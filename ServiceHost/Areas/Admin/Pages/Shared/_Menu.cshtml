@@ -1,0 +1,86 @@
+﻿@*@using _0_Framework.Infrastructure*@
+@inject _0_FrameWork.BaseClass.IAuthHelper AuthHelper
+@{
+    var currentAccout = AuthHelper.CurrentAccountInfo();
+}
+<div class="left side-menu">
+    <div class="sidebar-inner slimscrollleft">
+        <div class="user-details">
+            <div class="pull-right">
+                <img src="~/Theme/assets/img/usericon.png" alt="@currentAccout.Username" class="thumb-md img-circle">
+            </div>
+            <div class="user-info">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">@currentAccout.Fullname <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)"><i class="md md-face-unlock"></i> پروفایل<div class="ripple-wrapper"></div></a></li>
+                        @*<li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
+                        <li><a href="javascript:void(0)"><i class="md md-lock"></i> Lock screen</a></li>*@
+                        <li><a asp-page="/Account" asp-page-handler="Logout"><i class="md md-settings-power"></i> خروج</a></li>
+                    </ul>
+                </div>
+
+                <p class="text-muted m-0">@currentAccout.Role</p>
+            </div>
+        </div>
+        <!--- Divider -->
+        <div id="sidebar-menu">
+            <ul>
+                <li>
+                    <a asp-page="/Index" class="waves-effect active"><i class="md md-home"></i><span> داشبورد </span></a>
+                </li>
+                <li>
+                    <a asp-page="/Comments/Index" class="waves-effect"><i class="md md-home"></i><span> کامنت ها </span></a>
+                </li>
+                @*@if (AuthHelper.CurrentAccountRole() == Roles.Administrator)*@
+                @if (AuthHelper.CurrentAccountRole() == "1")
+                {
+
+                    <li>
+                        <a asp-page="/Inventory/Index" class="waves-effect"><i class="md md-home"></i><span> انبارداری </span></a>
+                    </li>
+                    <li>
+                        <a asp-page="/Shop/Orders/Index" class="waves-effect"><i class="md md-home"></i><span> سفارشات </span></a>
+                    </li>
+                    <li class="has_sub">
+                        <a class="waves-effect"><i class="md md-mail"></i><span> فروشگاه </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                        <ul class="list-unstyled">
+                            <li><a asp-page="/Shop/Slide/Index">اسلایدر</a></li>
+                            <li><a asp-page="/Shop/Banner/Index">بنر</a></li>
+                            <li><a asp-page="/Shop/ProductCategory/Index">گروه محصولات</a></li>
+                            <li><a asp-page="/Shop/Product/Index">محصولات</a></li>
+                            <li><a asp-page="/Shop/ProductPictures/Index">عکس محصولات</a></li>
+                        </ul>
+                    </li>
+                    <li class="has_sub">
+                        <a class="waves-effect"><i class="md md-mail"></i><span> سیستم تخفیفات </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                        <ul class="list-unstyled">
+                            <li><a asp-page="/Discounts/CustomerDiscount/Index">تخفیف مشتری</a></li>
+                            <li><a asp-page="/Discounts/ColleagueDiscount/Index">تخفیف همکاری</a></li>
+                        </ul>
+                    </li>
+                    <li class="has_sub">
+                        <a class="waves-effect"><i class="md md-mail"></i><span> سیستم کاربران </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                        <ul class="list-unstyled">
+                            <li><a asp-page="/Accounts/Account/Index">کاربران</a></li>
+                            <li><a asp-page="/Accounts/Role/Index">نقش ها</a></li>
+                        </ul>
+                    </li>
+               }
+                <li class="has_sub">
+                    <a class="waves-effect"><i class="md md-mail"></i><span> سیستم بلاگینگ </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                    <ul class="list-unstyled">
+                        <li><a asp-page="/Blog/ArticleCategories/Index">گروه مقالات</a></li>
+                        <li><a asp-page="/Blog/Articles/Index">مقالات</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a asp-page="/Account" asp-page-handler="Logout" class="waves-effect active"><i class="fa fa-sign-out"></i><span> خروج </span></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

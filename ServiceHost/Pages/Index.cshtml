@@ -1,0 +1,87 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "صحفه اصلی";
+
+    ViewData["keywords"] = "لوازم دکوری لوکس،لوازم دکوری شیک و ارزان";
+    ViewData["metaDescription"] = "خرید آنلاین لوازم تزیینی از فروشگاه اینترنتی  EPOS و انواع لوازم دکوری با تخفیف‌ شگفت انگیز در فروشگاه اینترنتی EPOS، پرداخت در محل، ارسال رایگان، شلف، مجسمه پلی استر، گل و گلدان، گلدان";
+}
+
+@await Component.InvokeAsync("Slide")
+
+@await Component.InvokeAsync("ProductCategory")
+
+@await Component.InvokeAsync("ProductCategoryWithProduct")
+
+@await Component.InvokeAsync("LatestArrivals")
+
+<!--====================  banner hover area ====================-->
+@await Component.InvokeAsync("DiscountBanner")
+
+<!--====================  End of banner hover area  ====================-->
+
+<div class="feature-logo-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!--=======  feature logo wrapper  =======-->
+                <div class="feature-logo-wrapper section-space--inner-bottom">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <!--=======  single feature logo  =======-->
+                            <div class="single-feature-logo">
+                                <div class="single-feature-logo__image">
+                                    <img src="~/Theme/assets/img/icons/free_shipping.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="single-feature-logo__content">
+                                    <h4 class="title">ارسال رایگان</h4>
+                                    <p class="short-desc">
+                                        با خرید بیشتر از یک صدو پنجاه هزار تومان هزینه
+                                        پست اعمال نمی گردد
+                                    </p>
+                                </div>
+                            </div>
+                            <!--=======  End of single feature logo  =======-->
+                        </div>
+                        <div class="col-md-4">
+                            <!--=======  single feature logo  =======-->
+                            <div class="single-feature-logo">
+                                <div class="single-feature-logo__image">
+                                    <img src="~/Theme/assets/img/icons/money_back.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="single-feature-logo__content">
+                                    <h4 class="title">ضمانت مرجوعی بی قید وشرط</h4>
+                                    <p class="short-desc">
+                                        اگر محصول ها پانزده روز بعداز  خرید مرجوع شود
+                                    </p>
+                                </div>
+                            </div>
+                            <!--=======  End of single feature logo  =======-->
+                        </div>
+                        <div class="col-md-4">
+                            <!--=======  single feature logo  =======-->
+                            <div class="single-feature-logo">
+                                <div class="single-feature-logo__image">
+                                    <img src="~/Theme/assets/img/icons/support247.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="single-feature-logo__content">
+                                    <h4 class="title">پشتیبانی ٢٤ساعته</h4>
+                                    <p class="short-desc">
+                                        هرسوال را در هرزمان ازما بپرسید
+                                    </p>
+                                </div>
+                            </div>
+                            <!--=======  End of single feature logo  =======-->
+                        </div>
+                    </div>
+                </div>
+                <!--=======  End of feature logo wrapper  =======-->
+            </div>
+        </div>
+    </div>
+</div>
+
+@await Component.InvokeAsync("LatestArticles")
+
+
+
