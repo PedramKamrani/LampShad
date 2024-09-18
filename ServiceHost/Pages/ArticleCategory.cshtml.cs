@@ -26,9 +26,11 @@ namespace ServiceHost.Pages
 
         public void OnGet(string id)
         {
+            if (id == "manifest.json") return;
             LatestArticles = _articleQuery.LatestArticles();
             ArticleCategory = _articleCategoryQuery.GetArticleCategory(id);
             ArticleCategories = _articleCategoryQuery.GetArticleCategories();
+
         }
     }
 }

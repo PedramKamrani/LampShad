@@ -63,13 +63,16 @@
                                                     <img src="~/ProductPictures/@Model.Product.Picture" class="img-fluid"
                                                          alt="@Model.Product.Picture">
                                                 </div>
-                                                @foreach (var picture in Model.Product.Pictures)
-                                                {
-                                                    <div class="single-image">
-                                                        <img src="~/ProductPictures/@picture.Picture" class="img-fluid"
-                                                             alt="@picture.PictureAlt" title="@picture.PictureTitle">
-                                                    </div>
+                                                @if (Model.Product.Pictures != null)
+                                                {@foreach (var picture in Model.Product.Pictures)
+                                                    {
+                                                        <div class="single-image">
+                                                            <img src="~/ProductPictures/@picture.Picture" class="img-fluid"
+                                                                 alt="@picture.PictureAlt" title="@picture.PictureTitle">
+                                                        </div>
+                                                    }
                                                 }
+                                                
                                             </div>
                                         </div>
 
@@ -99,13 +102,17 @@
                                                 <img src="~/ProductPictures/@Model.Product.Picture" class="img-fluid"
                                                      alt="@Model.Product.Picture">
                                             </div>
-                                            @foreach (var picture in Model.Product.Pictures)
+                                            @if (Model.Product.Pictures != null)
                                             {
-                                                <div class="single-image">
-                                                    <img src="~/ProductPictures/@picture.Picture" class="img-fluid"
-                                                         alt="@picture.PictureAlt" title="@picture.PictureTitle">
-                                                </div>
+                                                @foreach (var picture in Model.Product.Pictures)
+                                                {
+                                                    <div class="single-image">
+                                                        <img src="~/ProductPictures/@picture.Picture" class="img-fluid"
+                                                             alt="@picture.PictureAlt" title="@picture.PictureTitle">
+                                                    </div>
+                                                }
                                             }
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -213,7 +220,7 @@
                                                    data-toggle="tab" href="#product-description" role="tab"
                                                    aria-selected="true">توضیحات</a>
                                                 <a class="nav-item nav-link" id="review-tab" data-toggle="tab"
-                                                   href="#review" role="tab" aria-selected="false">نظرات (@Model.Product.Comments.Count)</a>
+                                                   href="#review" role="tab" aria-selected="false">نظرات (@Model.Product.Comments?.Count)</a>
                                             </div>
                                         </nav>
                                         <div class="tab-content" id="nav-tabContent">
@@ -226,19 +233,22 @@
                                             <div class="tab-pane fade" id="review" role="tabpanel"
                                                  aria-labelledby="review-tab">
                                                 <div class="product-rating-wrap">
-
-                                                    @foreach (var comment in Model.Product.Comments)
+                                                    @if (Model.Product.Comments != null)
                                                     {
-                                                        <div class="ratings-wrapper">
-                                                            <div class="sin-ratings">
-                                                                <div class="rating-author">
-                                                                    <h3>@comment.Name</h3>
+                                                        @foreach (var comment in Model.Product.Comments)
+                                                        {
+                                                            <div class="ratings-wrapper">
+                                                                <div class="sin-ratings">
+                                                                    <div class="rating-author">
+                                                                        <h3>@comment.Name</h3>
 
+                                                                    </div>
+                                                                    <p>@comment.Message</p>
                                                                 </div>
-                                                                <p>@comment.Message</p>
                                                             </div>
-                                                        </div>
+                                                        }
                                                     }
+                                                    
 
                                                     <div class="rating-form-wrapper fix">
                                                         <h3>نظر خود را به ما بگویید</h3>

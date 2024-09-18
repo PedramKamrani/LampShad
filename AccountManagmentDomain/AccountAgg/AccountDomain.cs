@@ -1,16 +1,12 @@
 ﻿using _0_FrameWork.ActiveCode;
 using _0_FrameWork.BaseClass;
 using AccountManagmentDomain.RoleAgg;
-using Ganss.XSS;
+using Ganss.Xss;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AccountManagmentDomain.AccountAgg
 {
-   public class AccountDomain:EntityBase
+    public class AccountDomain:EntityBase
     {
 
         public string Fullname { get; private set; }

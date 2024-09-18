@@ -71,8 +71,8 @@ namespace Infractrucuer.EFCore.Repository
                 //query = query.Where(s => s.Name.Contains(searchmodel.Name));
 
             if (searchmodel.Code != null)
-                query = query.Where(x => EF.Functions.Like(x.Code, $"%{x.Code}%"));
-                //query = query.Where(s => s.Code.Contains(searchmodel.Code));
+                //query = query.Where(x => x.Code==searchmodel.Code);
+                query = query.Where(s => s.Code.Contains(searchmodel.Code));
             if (searchmodel.CategoryId != 0)
                 query = query.Where(s => s.CategoryId==searchmodel.CategoryId);
 

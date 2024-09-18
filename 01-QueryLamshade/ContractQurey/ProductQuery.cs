@@ -112,14 +112,14 @@ namespace _01_QueryLamshade.ContractQurey
 
                 }
             }
-           return Products.OrderByDescending(x => x.Id).ToList();
+            return Products.OrderByDescending(x => x.Id).ToList();
         }
 
 
         public ProductQueryModel GetProductDetails(string slug)
         {
             var inventory = _Inventorycontext.Inventories.Select(x => new { x.ProductId, x.unitePrice, x.InStock }).ToList();
-            var comments = _commentcontext.Comments.Select(x => new {x.Id,x.Message}).ToList();
+            var comments = _commentcontext.Comments?.Select(x => new {x.Id,x.Message}).ToList();
             var discounts = _discountcontext.CustomerDiscounts
                 .Where(x => x.StartDate < DateTime.Now && x.EndDate > DateTime.Now)
                 .Select(x => new { x.DiscountRate, x.ProductId, x.EndDate }).ToList();

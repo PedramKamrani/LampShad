@@ -1,6 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using _0_FrameWork.BaseClass;
 using _01_QueryLamshade.Contracts.Product;
 using Appliction.Construct.ViewModel.Order;
 using Microsoft.AspNetCore.Http;
@@ -15,6 +16,9 @@ namespace ServiceHost.Pages
         public List<Cartitem> CartItem;
         public const string CookieName = "cart-items";
         private readonly IProductQuery _productQuery;
+
+        [TempData]
+        public string RegisterMessage { get; set; }
         public CartModel(IProductQuery productQuery)
         {
             _productQuery = productQuery;
@@ -57,15 +61,31 @@ namespace ServiceHost.Pages
         {
             var serializer = new JavaScriptSerializer();
             var value = Request.Cookies[CookieName];
-            var cartItems = serializer.Deserialize<List<Cartitem>>(value);
-            foreach (var item in cartItems)
+            if(value == null)
             {
-                item.TotalItemPrice = item.UnitPrice * item.Count;
+                RegisterMessage = "سبد شما خالی است";
+                var operation = new OperationResult()
+                {
+                    Message = RegisterMessage,
+                    Sussecced = false
+                };
+                // RegisterMessage = "سبد شما خالی است";
+                return Page();
+            }
+            var cartItems = serializer.Deserialize<List<Cartitem>>(value);
+            if(cartItems != null)
+            {
+                foreach (var item in cartItems)
+                {
+                    item.TotalItemPrice = item.UnitPrice * item.Count;
+                }
+                CartItem = _productQuery.CheckInventoryStatus(cartItems);
+
             }
 
-            CartItem = _productQuery.CheckInventoryStatus(cartItems);
 
-           
+
+
 
             return RedirectToPage(CartItem.Any(x => !x.IsInStock) ? "/Cart" : "/Checkout");
         }
