@@ -121,25 +121,28 @@ namespace _01_QueryLamshade.ContractQurey
                        Products=MapProduct(p.Products)
                       
                    }).FirstOrDefault(p => p.Slug == id);
-
-            foreach (var item in categoryProductBySlug.Products)
+            if(categoryProductBySlug != null)
             {
-                var inventory = inventores.FirstOrDefault(c => c.ProductId == item.Id);
-                if (inventory != null)
+                foreach (var item in categoryProductBySlug.Products)
                 {
-                    var discount = discounts.FirstOrDefault(c => c.ProductId == item.Id);
-                    var price = inventory.unitePrice;
-                    item.Price = price.ToMoney();
-                    if (discount != null)
+                    var inventory = inventores.FirstOrDefault(c => c.ProductId == item.Id);
+                    if (inventory != null)
                     {
-                        int discuontrate = discount.DiscountRate;
-                        item.HasDiscount = discuontrate > 0;
-                       var discountAmount=Math.Round((price*discuontrate)/100);
-                        item.PriceWithDiscount = (price - discountAmount).ToMoney();
-                        item.DiscountExpireDate = discount.EndDate.ToDiscountFormat();
+                        var discount = discounts.FirstOrDefault(c => c.ProductId == item.Id);
+                        var price = inventory.unitePrice;
+                        item.Price = price.ToMoney();
+                        if (discount != null)
+                        {
+                            int discuontrate = discount.DiscountRate;
+                            item.HasDiscount = discuontrate > 0;
+                            var discountAmount = Math.Round((price * discuontrate) / 100);
+                            item.PriceWithDiscount = (price - discountAmount).ToMoney();
+                            item.DiscountExpireDate = discount.EndDate.ToDiscountFormat();
+                        }
                     }
                 }
             }
+            
             return categoryProductBySlug;
         }
     }

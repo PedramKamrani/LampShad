@@ -1971,7 +1971,7 @@ select {
         font-size: 48px;
         font-weight: 500;
         line-height: 48px;
-        color: #292929;
+        color: #ebebeb  !important;
     }
 
     .hero-slider-item-wrapper--fullwidth--fixed-height .hero-slider-content p.slider-title--small {
@@ -1982,7 +1982,7 @@ select {
     font-size: 48px;
     font-weight: 500;
     line-height: 48px;
-    color: #292929;
+    color: #ebebeb;
 }
 
 .hero-slider-item-wrapper--fullwidth .hero-slider-content p.slider-title--small {
@@ -2001,7 +2001,7 @@ select {
             font-size: 48px;
             font-weight: 500;
             line-height: 48px;
-            color: #292929;
+            color: #ebebeb;
         }
 
         .hero-slider-item-wrapper--minimal-height .hero-slider-content p.slider-title--small {
@@ -2032,7 +2032,7 @@ select {
     font-weight: 700;
     line-height: 80px;
     margin-bottom: 20px;
-    color: #292929;
+    color: #ebebeb !important;
 }
 
 .hero-slider-content p.slider-title--big-light {
@@ -2040,7 +2040,7 @@ select {
     font-weight: 300;
     line-height: 40px;
     margin-bottom: 0;
-    color: #292929;
+    color: #ebebeb;
 }
 
 /*=====  End of hero slider  ======*/

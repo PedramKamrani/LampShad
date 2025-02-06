@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using RestSharp;
-using RestSharp.Serialization.Json;
 
 namespace _0_FrameWork.BaseClass.ZarinPal
 {
@@ -28,7 +28,7 @@ namespace _0_FrameWork.BaseClass.ZarinPal
 
             var client = new RestClient($"https://{Prefix}.zarinpal.com/pg/rest/WebGate/PaymentRequest.json");
            
-            var request = new RestRequest(Method.POST);
+            var request = new RestRequest($"https://{Prefix}.zarinpal.com/pg/rest/WebGate/PaymentVerification.json",Method.Post);
             request.AddHeader("Content-Type", "application/json");
             var body = new PaymentRequest
             {
@@ -42,14 +42,16 @@ namespace _0_FrameWork.BaseClass.ZarinPal
             request.AddJsonBody(body);
             var response = client.Execute(request);
             var jsonSerializer = new JsonSerializer();
-            return jsonSerializer.Deserialize<PaymentResponse>(response);
+            var jsonResponse = JsonConvert.SerializeObject(response);
+            return JsonConvert.DeserializeObject<PaymentResponse>(jsonResponse);
+            //return jsonSerializer.Deserialize<PaymentResponse>(response);
         }
 
         public VerificationResponse CreateVerificationRequest(string authority, string amount)
         {
             var client = new RestClient($"https://{Prefix}.zarinpal.com/pg/rest/WebGate/PaymentVerification.json");
             
-            var request = new RestRequest(Method.POST);
+            var request = new RestRequest($"https://{Prefix}.zarinpal.com/pg/rest/WebGate/PaymentVerification.json", Method.Post);
             request.AddHeader("Content-Type", "application/json");
 
             amount = amount.Replace(",", "");
@@ -63,7 +65,9 @@ namespace _0_FrameWork.BaseClass.ZarinPal
             });
             var response = client.Execute(request);
             var jsonSerializer = new JsonSerializer();
-            return jsonSerializer.Deserialize<VerificationResponse>(response);
+            var jsonResponse = JsonConvert.SerializeObject(response);
+            return JsonConvert.DeserializeObject<VerificationResponse>(jsonResponse);
+            //return jsonSerializer.Deserialize<VerificationResponse>(response);
         }
     }
 }
