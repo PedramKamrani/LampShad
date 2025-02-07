@@ -58,12 +58,12 @@ namespace ServiceHost
 
             services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
             services.AddSingleton<IPasswordHasher,PasswordHasher>();
-            services.AddTransient<IFileUploader,FileUploader>();
-            services.AddTransient<IAuthHelper, AuthHelper>();
-            services.AddTransient<IZarinPalFactory, ZarinPalFactory>();
-            services.AddTransient<ISmsService, SmsService>();
-            services.AddTransient<IEmailService, EmailService>();
-            
+            services.AddScoped<IFileUploader,FileUploader>();
+            services.AddScoped<IAuthHelper, AuthHelper>();
+            services.AddScoped<IZarinPalFactory, ZarinPalFactory>();
+            services.AddScoped<ISmsService, SmsService>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddHttpContextAccessor();
 
             services.Configure<CookiePolicyOptions>(options =>
             {

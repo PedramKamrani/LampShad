@@ -50,26 +50,31 @@ namespace ServiceHost.Pages
         }
         public IActionResult OnPostRegister(RegisterAccount command)
         {
-            HtmlSanitizer htmlsantaizer = new HtmlSanitizer();
-            RegisterAccount registersafe = new RegisterAccount
+            if (ModelState.IsValid)
             {
-                Username = htmlsantaizer.Sanitize(command.Username),
-                Fullname = htmlsantaizer.Sanitize(command.Fullname),
-                Mobile = htmlsantaizer.Sanitize(command.Mobile),
-                Password = htmlsantaizer.Sanitize(command.Password),
-                Address = htmlsantaizer.Sanitize(command.Address),
-                StreetCode = htmlsantaizer.Sanitize(command.StreetCode)
+                HtmlSanitizer htmlsantaizer = new HtmlSanitizer();
+                RegisterAccount registersafe = new RegisterAccount
+                {
+                    Username = htmlsantaizer.Sanitize(command.Username),
+                    Fullname = htmlsantaizer.Sanitize(command.Fullname),
+                    Mobile = htmlsantaizer.Sanitize(command.Mobile),
+                    Password = htmlsantaizer.Sanitize(command.Password),
+                    Address = htmlsantaizer.Sanitize(command.Address),
+                    StreetCode = htmlsantaizer.Sanitize(command.StreetCode)
 
-            };
-            OperationResult result = _accountApplication.Register(registersafe);
-            if (result.Sussecced)
-            {
+                };
+                OperationResult result = _accountApplication.Register(registersafe);
+                if (result.Sussecced)
+                {
+                    RegisterMessage = result.Message;
+                    return Page();
+                }
+
+
                 RegisterMessage = result.Message;
                 return Page();
             }
-
-
-            RegisterMessage = result.Message;
+            RegisterMessage="مدل خالی است";
             return Page();
         }
     }

@@ -16,6 +16,8 @@ namespace Commentmanagment.Domain.CommentAgg
         public long ParentId { get; private set; }
         public Comment Parent { get; private set; }
 
+
+        public Comment() { }
         public Comment(string name, string email, string website, string message,
             long ownerRecordId, int type, long parentId)
         {
@@ -25,7 +27,15 @@ namespace Commentmanagment.Domain.CommentAgg
             Message = message;
             OwnerRecordId = ownerRecordId;
             Type = type;
-            ParentId = parentId;
+            if (parentId == 0)
+            {
+                ParentId = 1;
+            }
+            else
+            {
+                ParentId=parentId;
+            }
+        
         }
 
         public void Confirm()
