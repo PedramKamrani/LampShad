@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="TQYY-Rux7q4jqqf8GR58MQ5WaBPUq6ipT4GodHzBrzg" />
     @if (ViewData["Title"] != null)
     {
 <title>@ViewData["Title"] -  EPOS فروشگاه لوازم دکوری </title> }
@@ -23,12 +24,16 @@
 </head>
 
 <body>
-
-    @await Component.InvokeAsync("Menu")
+    <nav>
+        @await Component.InvokeAsync("Menu")
+    </nav>
+  
 
     @RenderBody()
+    <footer>
+        @await Component.InvokeAsync("Footer")
+    </footer>
 
-    @await Component.InvokeAsync("Footer")
 
 
 <div class="search-overlay" id="search-overlay">
