@@ -114,7 +114,7 @@ namespace ServiceHost
                 }).AddApplicationPart(typeof(ProductController).Assembly)
                 .AddApplicationPart(typeof(InventoryController).Assembly)
                 .AddNewtonsoftJson();
-            services.AddSignalR();
+            //services.AddSignalR();
             services.AddProgressiveWebApp();
         }
 
@@ -158,7 +158,7 @@ namespace ServiceHost
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
-                endpoints.MapHub<ViewHub>("/Hubs/View");
+              //  endpoints.MapHub<ViewHub>("/Hubs/View");
             });
         }
     }
