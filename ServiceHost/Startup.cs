@@ -79,6 +79,7 @@ namespace ServiceHost
                     o.AccessDeniedPath = new PathString("/AccessDenied");
                     o.ExpireTimeSpan = TimeSpan.FromDays(2);
                     o.Cookie.HttpOnly = true;
+                   
                     
                 });
 
