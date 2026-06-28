@@ -55,18 +55,20 @@
         <span>برو بالا</span><i class="ion-chevron-right"></i><i class="ion-chevron-right"></i>
     </div>
 
-    <script>
-        $(document).ready(function () {
-            
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
         <script src="~/Theme/assets/js/vendors.min.js"></script>
         <script src="~/Theme/assets/js/active.js"></script>
         <script src="~/Theme/assets/js/plugins.min.js"></script>
         <script src="~/Theme/assets/js/custom.min.js"></script>
         <script src="~/lib/microsoft-signalr//signalr.min.js"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script>
+          document.addEventListener('DOMContentLoaded', function() {
+        if (typeof updateCart === 'function') {
             updateCart();
-        });
+        }
+    });
+    });
     </script>
 
     <!---start GOFTINO code--->
