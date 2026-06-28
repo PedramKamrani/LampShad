@@ -9,6 +9,7 @@ namespace _01_QueryLamshade.Contracts.ArticleCategory
 {
    public class ArticleCategoryQueryModel
     {
+        public long Id { get; set; }
         public string Name { get; set; }
         public string Picture { get; set; }
         public string PictureAlt { get; set; }

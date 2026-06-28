@@ -26,7 +26,7 @@ namespace ServiceHost.Pages
 
         public void OnGet(string id)
         {
-            if (id == "manifest.json") return;
+            if (id == "manifest.json") id="";
             LatestArticles = _articleQuery.LatestArticles();
             ArticleCategory = _articleCategoryQuery.GetArticleCategory(id);
             ArticleCategories = _articleCategoryQuery.GetArticleCategories();

@@ -22,10 +22,10 @@
                                     <ul class="sub-menu">
                                         @foreach (var category in Model.ProductCategories)
                                         {
-                            <li>
-                                <a asp-page="./ProductCategory" asp-route-id="@category.Slug">@category.Name</a>
-                            </li>
-}
+                                            <li>
+                                                <a asp-page="./ProductCategory" asp-route-id="@category.Slug">@category.Name</a>
+                                            </li>
+                                        }
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
@@ -33,10 +33,10 @@
                                     <ul class="sub-menu">
                                         @foreach (var category in Model.ArticleCategories)
                                         {
-                            <li>
-                                <a asp-page="./ArticleCategory" asp-route-id="@category.Slug">@category.Name</a>
-                            </li>
-}
+                                            <li>
+                                                <a asp-page="./ArticleCategory" asp-route-id="@category.Slug">@category.Name</a>
+                                            </li>
+                                        }
                                     </ul>
                                 </li>
                                 <li>
@@ -44,17 +44,17 @@
                                 </li>
                                 @if (AuthHelper.IsAuthenticated())
                                 {
-                    <li>
-                        <a asp-page="/Account" asp-page-handler="Logout"><i class="fa fa-sign-out"></i> خروج </a>
-                        @*<a asp-page="/Account" asp-page-handler="Logout">(@User.FindFirst("Username").Value) خروج </a>*@
-                    </li>
- }
-                else
-                {
-    <li>
-        <a asp-page="/Account">وورد / ثبت نام</a>
-    </li>
-}
+                                    <li>
+                                        <a asp-page="/Account" asp-page-handler="Logout"><i class="fa fa-sign-out"></i> خروج </a>
+                                        @*<a asp-page="/Account" asp-page-handler="Logout">(@User.FindFirst("Username").Value) خروج </a>*@
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        <a asp-page="/Account">وورد / ثبت نام</a>
+                                    </li>
+                                }
                             </ul>
                         </nav>
                     </div>
@@ -73,7 +73,6 @@
                                     </a>
                                     <div class="mini-cart" id="mini-cart">
                                         <div class="cart-items-wrapper ps-scroll" id="cart_items_wrapper">
-
                                         </div>
                                         <div class="cart-buttons">
                                             <a asp-page="/Cart">مشاهده سبد خرید</a>
@@ -84,7 +83,7 @@
                             <li>
                                 <div class="header-settings-icon">
                                     <a href="javascript:void(0)" class="header-settings-trigger"
-                                       id="header-settings-trigger">
+                                           id="header-settings-trigger">
                                         <div class="setting-button">
                                             <span></span>
                                             <span></span>
@@ -133,10 +132,12 @@
                                         <li>
                                             @if (User.Identity.IsAuthenticated)
                                             {
-                                <a asp-page="/Account" asp-page-handler="Logout"><i class="fa fa-sign-out"></i></a> }
-                            else
-                            {
-                                <a asp-page="/Account"><i class="fa fa-user"></i></a>}
+                                                <a asp-page="/Account" asp-page-handler="Logout"><i class="fa fa-sign-out"></i></a>
+                                            }
+                                            else
+                                            {
+                                                <a asp-page="/Account"><i class="fa fa-user"></i></a>
+                                            }
 
                                         </li>
                                         <li>

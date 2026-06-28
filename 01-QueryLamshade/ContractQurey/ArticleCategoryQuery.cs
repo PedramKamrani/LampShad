@@ -23,6 +23,7 @@ namespace _01_QueryLamshade.ContractQurey
                 .Include(x => x.Articles)
                 .Select(x => new ArticleCategoryQueryModel
                 {
+                    Id=x.Id,
                     Name = x.Name,
                     Picture = x.Picture,
                     PictureAlt = x.PictureAlt,
