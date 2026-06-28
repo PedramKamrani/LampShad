@@ -9,7 +9,7 @@
                         <div class="col-sm-12">
                             <h4 class="pull-left page-title">خوش آمدید!</h4>
                             <ol class="breadcrumb pull-right">
-                                <li><a href="#">پدرام</a></li>
+                               @*  <li><a href="#">@User.FindFirst("Name").Value</a></li> *@
                                 <li class="active">Dashboard</li>
                             </ol>
                         </div>
@@ -80,7 +80,7 @@
                             <div class="mini-stat clearfix bx-shadow">
                                 <span class="mini-stat-icon bg-primary"><i class="ion-android-contacts"></i></span>
                                 <div class="mini-stat-info text-right text-muted">
-                                    <span class="counter">5210</span>
+                                    <span class="counter">@Model.NewUsers</span>
                                     New Users
                                 </div>
                                 <div class="tiles-progress">

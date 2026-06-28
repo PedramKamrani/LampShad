@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AccountMangment.Infracture.EFCore.Repository
 {
-   public class AccountRepository:RepositoryBaseClass<long,AccountDomain>,IAccountRepository
+    public class AccountRepository : RepositoryBaseClass<long, AccountDomain>, IAccountRepository
     {
         private readonly AccountContext _context;
         public AccountRepository(AccountContext context) :base(context)
@@ -96,6 +96,13 @@ namespace AccountMangment.Infracture.EFCore.Repository
               
             }).FirstOrDefault(a=>a.Mobile==mobile);
             return activecode;
+        }
+
+        public async Task<int> GetNewCreateUserAsync()
+        {
+            var newUsers=_context.Accounts.
+                Select(x=>x.Creation==DateTime.Now || x.Creation ==DateTime.Now.AddDays(-1)).Count();
+            return newUsers;
         }
     }
 }

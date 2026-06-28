@@ -6,6 +6,7 @@ using AccountManagmentDomain.RoleAgg;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace A.M.Application.AccountApp
 {
@@ -181,6 +182,11 @@ namespace A.M.Application.AccountApp
             if(accuntcode!=null)
             return accuntcode.ActiveCode;
             return "";
+        }
+
+        public async Task<int> GetNewCreateUserAsync()
+        {
+           return await _accountrepository.GetNewCreateUserAsync();
         }
         #endregion
     }

@@ -22,5 +22,6 @@ namespace AccountManagment.Application.Contract.AccountVM
         List<AccountViewModel> GetAccounts();
 
        string GetActiveCodeByMobile(string mobile);
+       Task<int>  GetNewCreateUserAsync();
     }
 }

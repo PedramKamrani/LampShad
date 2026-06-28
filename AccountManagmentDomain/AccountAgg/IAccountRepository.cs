@@ -17,5 +17,6 @@ namespace AccountManagmentDomain.AccountAgg
         List<AccountViewModel> GetAccounts();
         List<AccountViewModel> Search(AccountSearchModel searchModel);
         ForgetPassword GetActiveCodeByMobile(string mobile);
+        Task<int> GetNewCreateUserAsync();
     }
 }
