@@ -33,12 +33,13 @@ namespace _01_QueryLamshade.ContractQurey
                 }).ToList();
         }
 
-        public ArticleCategoryQueryModel GetArticleCategory(string slug)
+        public ArticleCategoryQueryModel GetArticleCategory(long id)
         {
             var articleCategory = _context.ArticleCategories
                 .Include(x => x.Articles)
                 .Select(x => new ArticleCategoryQueryModel
                 {
+                    Id=x.Id,
                     Slug = x.Slug,
                     Name = x.Name,
                     Description = x.Description,
@@ -50,8 +51,8 @@ namespace _01_QueryLamshade.ContractQurey
                     CanonicalAddress = x.CanonicalAddress,
                     ArticlesCount = x.Articles.Count,
                     Articles = MapArticles(x.Articles)
-                }).FirstOrDefault(x => x.Slug == slug);
-
+                }).FirstOrDefault(x => x.Id == id);
+            if (articleCategory==null) return new ArticleCategoryQueryModel();
             if (!string.IsNullOrWhiteSpace(articleCategory.Keywords))
                 articleCategory.KeywordList = articleCategory.Keywords.Split(",").ToList();
 

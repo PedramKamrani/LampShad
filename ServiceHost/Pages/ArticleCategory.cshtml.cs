@@ -24,11 +24,11 @@ namespace ServiceHost.Pages
             _articleCategoryQuery = articleCategoryQuery;
         }
 
-        public void OnGet(string id)
+        public void OnGet(long id)
         {
-            if (id == "manifest.json") id="";
+            if (id == 0) ArticleCategory= new ArticleCategoryQueryModel();
             LatestArticles = _articleQuery.LatestArticles();
-            ArticleCategory = _articleCategoryQuery.GetArticleCategory(id);
+            ArticleCategory = _articleCategoryQuery.GetArticleCategory(id)??new ArticleCategoryQueryModel();
             ArticleCategories = _articleCategoryQuery.GetArticleCategories();
 
         }

@@ -9,7 +9,7 @@ namespace _01_QueryLamshade.Contracts.ArticleCategory
    public interface IArticleCategoryQuery
     {
 
-        ArticleCategoryQueryModel GetArticleCategory(string slug);
+        ArticleCategoryQueryModel GetArticleCategory(long id);
         List<ArticleCategoryQueryModel> GetArticleCategories();
     }
 }

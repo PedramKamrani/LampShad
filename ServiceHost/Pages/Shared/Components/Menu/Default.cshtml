@@ -23,7 +23,7 @@
                                         @foreach (var category in Model.ProductCategories)
                                         {
                                             <li>
-                                                <a asp-page="./ProductCategory" asp-route-id="@category.Slug">@category.Name</a>
+                                                <a asp-page="./ProductCategory" asp-route-id="@category.Id">@category.Name</a>
                                             </li>
                                         }
                                     </ul>
@@ -34,7 +34,7 @@
                                         @foreach (var category in Model.ArticleCategories)
                                         {
                                             <li>
-                                                <a asp-page="./ArticleCategory" asp-route-id="@category.Slug">@category.Name</a>
+                                                <a asp-page="./ArticleCategory" asp-route-id="@category.Id">@category.Name</a>
                                             </li>
                                         }
                                     </ul>
