@@ -42,7 +42,7 @@ namespace _01_QueryLamshade.ContractQurey
                    PublishDate = x.PublishDate.ToFarsi(),
                    ShortDescription = x.ShortDescription.Substring(0,Math.Min(x.ShortDescription.Length,50))+"...",
                }).FirstOrDefault(x => x.Slug == slug);
-            if(article.Keywords==null) return new ArticleQueryModel();
+            if(article==null) return new ArticleQueryModel();
             if (!string.IsNullOrWhiteSpace(article.Keywords))
                 article.KeywordList = article.Keywords.Split(",").ToList();
 

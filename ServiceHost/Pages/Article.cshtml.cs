@@ -41,9 +41,12 @@ namespace ServiceHost.Pages
                 Email=htmlsantaizer.Sanitize(command.Email),
                 Message=htmlsantaizer.Sanitize(command.Message),
                 Name=htmlsantaizer.Sanitize(command.Name),
-                Website=htmlsantaizer.Sanitize(command.Website)
+                Website=htmlsantaizer.Sanitize(command.Website),
+                ParentId=command.ParentId,
+                OwnerRecordId=command.ParentId,
+                Type= 2
             };
-            command.Type = CommentType.Article;
+            command.Type = 2;
             OperationResult result = _commentApplication.Add(santazier);
             return RedirectToPage("/Article", new { Id = articleSlug });
         }
